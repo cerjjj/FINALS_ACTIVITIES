@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7f4">
+    <title>@yield('title', 'Tasks for Today') · Tasks for Today</title>
+    <style>
+        :root{--ink:#18221d;--muted:#718078;--line:#e4e9e5;--paper:#fff;--wash:#f6f7f4;--green:#226b4b;--mint:#e9f4ee}
+        *{box-sizing:border-box}body{margin:0;background:var(--wash);color:var(--ink);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}.shell{min-height:100vh;display:grid;grid-template-columns:248px minmax(0,1fr)}
+        .sidebar{background:#fff;border-right:1px solid var(--line);padding:28px 18px;display:flex;flex-direction:column}.brand{display:flex;align-items:center;gap:12px;padding:0 10px 34px;font-weight:750;font-size:16px;letter-spacing:-.03em}.brand-mark{width:34px;height:34px;border-radius:11px;background:#1e6548;color:white;display:grid;place-items:center;font-size:16px}.brand small{display:block;color:#89948e;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}.nav-label{padding:0 11px;margin:10px 0 9px;color:#9aa39e;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em}.nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;margin:3px 0;border-radius:9px;color:#68766e;font-size:13px;font-weight:600}.nav a:hover,.nav a.active{background:#edf5ef;color:#1e6548}.nav-icon{width:20px;text-align:center;font-size:15px}.sidebar-foot{margin-top:auto;border-top:1px solid var(--line);padding:17px 10px 0;color:#87928b;font-size:11px}.main{min-width:0}.topbar{height:72px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 42px}.crumb{color:#8b968f;font-size:12px}.profile{display:flex;align-items:center;gap:11px;font-size:12px;font-weight:650}.avatar{width:34px;height:34px;border-radius:50%;background:#f3e8dc;color:#8a5732;display:grid;place-items:center;font-weight:750}.content{max-width:1180px;margin:0 auto;padding:42px}.eyebrow{font-size:10px;font-weight:750;letter-spacing:.15em;text-transform:uppercase;color:var(--green)}h1{font-size:31px;line-height:1.2;letter-spacing:-.045em;margin:8px 0 9px}h2{font-size:17px;letter-spacing:-.02em;margin:0}.lead{color:var(--muted);margin:0;max-width:660px}.page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:28px}.date-pill{border:1px solid var(--line);border-radius:9px;background:#fff;padding:9px 13px;color:#6e7b73;font-size:11px}.card{background:var(--paper);border:1px solid var(--line);border-radius:13px}.hero{padding:32px;background:#183e30;color:#fff;position:relative;overflow:hidden;min-height:226px}.hero:after{content:"";position:absolute;width:290px;height:290px;border:1px solid #ffffff22;border-radius:50%;right:-40px;top:-100px;box-shadow:0 0 0 32px #ffffff0d,0 0 0 64px #ffffff08}.hero .eyebrow{color:#a8d0b5}.hero h1{font-size:37px;max-width:540px;margin:12px 0}.hero p{color:#cfddd4;margin:0;max-width:510px;font-size:14px}.hero-link{position:relative;z-index:1;display:inline-flex;margin-top:20px;padding:10px 14px;background:#f0f6f0;color:#184631;border-radius:8px;font-weight:700;font-size:12px}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}.stat{padding:20px}.stat-top{display:flex;justify-content:space-between;align-items:center;color:#7d8981;font-size:11px}.stat-icon{width:31px;height:31px;background:#edf5ef;color:#236a4c;display:grid;place-items:center;border-radius:9px}.stat strong{display:block;font-size:26px;letter-spacing:-.04em;margin-top:14px}.stat small{color:#87928b;font-size:11px}.section-card{margin-top:20px;padding:20px}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left}th{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#8b968f;font-weight:700;padding:11px 12px;border-bottom:1px solid var(--line)}td{padding:13px 12px;border-bottom:1px solid #eff2ef;color:#55635b;font-size:12px}tbody tr:last-child td{border-bottom:0}.person{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:650}.mini-avatar{width:30px;height:30px;border-radius:9px;background:#edf3ef;display:grid;place-items:center;color:#397656;font-size:10px;font-weight:750}.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:99px;background:#edf6ef;color:#3b7751;font-size:10px;font-weight:700}.badge:before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor}.badge.inactive{background:#f3f1ee;color:#8e8176}.info-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}.info-card{padding:24px}.info-card p{color:var(--muted);font-size:13px}.principles{display:grid;gap:12px;margin-top:18px}.principle{padding:13px;background:#f7f9f7;border:1px solid #eef1ee;border-radius:9px;font-size:12px;color:#68766e}.principle b{color:#25392e;display:block;margin-bottom:3px}.footnote{color:#9aa39e;font-size:10px;margin-top:20px}.empty-mark{display:grid;place-items:center;width:42px;height:42px;background:var(--mint);border-radius:12px;color:var(--green);font-size:19px;margin-bottom:14px}
+        @media(max-width:850px){.shell{grid-template-columns:1fr}.sidebar{padding:12px 16px;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:0 5px 10px}.nav-label,.sidebar-foot{display:none}.nav{display:flex;overflow:auto;gap:4px}.nav a{white-space:nowrap;padding:8px 10px}.topbar{height:58px;padding:0 20px}.content{padding:27px 20px}.info-grid{grid-template-columns:1fr}}
+        @media(max-width:600px){.page-head{align-items:flex-start;flex-direction:column}.stats{grid-template-columns:1fr}.hero{padding:25px;min-height:220px}.hero h1{font-size:30px}.content{padding:23px 15px}.section-card{padding:15px}.profile span{display:none}h1{font-size:27px}}
+    </style>
+    <style>
+        .badge.completed{background:#e8f3ec;color:#28734a}.badge.in-progress{background:#fff3df;color:#946019}.badge.pending{background:#edf1f4;color:#667783}.task-summary{display:flex;align-items:center;gap:12px}.task-date{white-space:nowrap;color:#7b8981;font-size:11px}.task-title{font-weight:650;color:var(--ink)}.task-empty{padding:30px;text-align:center;color:var(--muted);font-size:13px}
+    </style>
+</head>
+<body>
+<div class="shell">
+    <aside class="sidebar">
+        <a class="brand" href="{{ route('home') }}"><span class="brand-mark">T</span><span>Tasks Today<small>Task manager</small></span></a>
+        <div class="nav-label">Tasks</div>
+        <nav class="nav" aria-label="Main navigation">
+            <a class="{{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}"><span class="nav-icon">◷</span>Today</a>
+            <a class="{{ request()->routeIs('tasks.*') ? 'active' : '' }}" href="{{ route('tasks.index') }}"><span class="nav-icon">☷</span>All tasks</a>
+        </nav>
+        <div class="nav-label" style="margin-top:25px">More</div>
+        <nav class="nav">
+            <a class="{{ request()->routeIs('profile') ? 'active' : '' }}" href="{{ route('profile') }}"><span class="nav-icon">♙</span>Profile</a>
+            <a class="{{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}"><span class="nav-icon">ⓘ</span>About</a>
+        </nav>
+        <div class="sidebar-foot">TSA3 · Laravel<br>Tasks for Today</div>
+    </aside>
+    <main class="main">
+        <header class="topbar"><div class="crumb">Tasks for Today&nbsp; / &nbsp;@yield('crumb', 'Today')</div><div class="profile"><span>Task manager</span><span class="avatar">TM</span></div></header>
+        <div class="content">@yield('content')</div>
+    </main>
+</div>
+</body>
+</html>
