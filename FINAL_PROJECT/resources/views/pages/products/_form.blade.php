@@ -1,0 +1,6 @@
+<div class="form-grid">
+    <div class="field"><label for="name">Product name <span class="required">*</span></label><input id="name" name="name" value="{{ old('name',$product->name ?? '') }}" required maxlength="100">@error('name')<p class="field-error">{{ $message }}</p>@enderror</div>
+    <div class="field"><label for="price">Price (₱) <span class="required">*</span></label><input id="price" name="price" type="number" min="0.01" step="0.01" value="{{ old('price',$product->price ?? '') }}" required>@error('price')<p class="field-error">{{ $message }}</p>@enderror</div>
+    <div class="field"><label for="stock_quantity">Stock quantity <span class="required">*</span></label><input id="stock_quantity" name="stock_quantity" type="number" min="0" step="1" value="{{ old('stock_quantity',$product->stock_quantity ?? 0) }}" required>@error('stock_quantity')<p class="field-error">{{ $message }}</p>@enderror</div>
+    <div class="field"><label for="image">Product image <span class="optional">Optional · JPG, PNG or WebP · max 2 MB</span></label>@isset($product->image)<img class="preview" src="{{ Storage::disk('public')->url($product->image) }}" alt="Current product image">@endisset<input id="image" name="image" type="file" accept="image/jpeg,image/png,image/webp">@error('image')<p class="field-error">{{ $message }}</p>@enderror</div>
+</div>
